@@ -1,19 +1,5 @@
 <?php
 session_start();
-require_once "../includes/db.php";
-require_once "../classes/User.php";
-
-$user = new User($pdo);
-if (!$user->isLoggedIn()) {
-    header("Location: login.php");
-    exit;
-}
-
-echo "Bienvenue dans l'admin !";
-?>
-<a href="logout.php">Se déconnecter</a>
-
-session_start();
 require_once 'config.php';
 
 $conn = Database::getConnection();
@@ -50,11 +36,18 @@ $quizList = $query->fetchAll(PDO::FETCH_ASSOC);
     </div>
 
     <h2>Liste des Quiz</h2>
-    <ul>
-        <?php foreach ($quizList as $quizzes): ?>
-            <li><a href="quizzes.php?id=<?= $quizzes['id'] ?>"><?= htmlspecialchars($quizzes['titre']) ?></a></li>
-        <?php endforeach; ?>
-    </ul>
+    <div class="container">
+    <?php
+    $sql = "SELECT * FROM theme";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        echo '<div class="theme">';
+        echo '<a href="theme.php?id=' . htmlspecialchars($row['id']) . '">' . htmlspecialchars($row['nom']) . '</a>';
+        echo '</div>';
+    }
+    ?>
+    </div>
 
     <script src="./assets/js/script.js"></script>
 </body>

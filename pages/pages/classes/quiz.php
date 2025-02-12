@@ -1,3 +1,4 @@
+<?php
 class Quiz {
     private $pdo;
 
@@ -7,11 +8,13 @@ class Quiz {
 
     public function getAllQuizzes() {
         $stmt = $this->pdo->query("SELECT * FROM quizzes");
-        return $stmt->fetchAll();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function createQuiz($title, $userId) {
         $stmt = $this->pdo->prepare("INSERT INTO quizzes (title, created_by) VALUES (?, ?)");
-        return $stmt->execute([$title, $userId]);
+        $stmt->execute([$title, $userId]);
+        return $this->pdo->lastInsertId();
     }
 }
+?>
