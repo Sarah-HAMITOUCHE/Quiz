@@ -16,28 +16,6 @@ body {
     z-index: -1;
 }
 
-/* Conteneur du logo */
-.logo-container {
-    display: flex;
-    justify-content: center; /* Centre horizontalement */
-    align-items: center; /* Centre verticalement si nécessaire */
-    position: absolute;
-    top: 10px; /* Distance depuis le haut */
-    left: 50%;
-    transform: translateX(-50%); /* Centre horizontalement */
-    width: 50px; /* Ajuste la largeur du logo */
-    height: 50px; /* Ajuste la hauteur du logo */
-    overflow: hidden; /* Cache les parties débordantes */
-    border-radius: 50%; /* Rend le conteneur rond */
-}
-
-/* Style du logo */
-.logo-container img {
-    width: 100%; /* S'adapte à la taille du conteneur */
-    height: 100%; /* S'adapte à la taille du conteneur */
-    object-fit: cover; /* Couvre le conteneur sans déformer l'image */
-}
-
 @keyframes cielAnime {
     from { background-position: 0 0; }
     to { background-position: 10000px 10000px; }
@@ -93,4 +71,63 @@ button {
 
 button:hover {
     background: rgba(255, 255, 255, 0.5);
+}
+
+/* Conteneur des questions */
+.quiz-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+}
+
+.question-card {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.reponses-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.reponses-list li {
+    margin: 10px 0;
+}
+
+/* Modale */
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 15% auto;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.close {
+    float: right;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.close:hover {
+    color: #ff0000;
 }

@@ -7,18 +7,18 @@ if (!isset($_GET['id'])) {
     exit();
 }
 
-$theme_id = $_GET['id'];
+$quiz_id = $_GET['id'];
 $conn = Database::getConnection();
 
-// Récupérer les quiz du thème
-$query = $conn->prepare("SELECT * FROM quizzes WHERE theme_id = ?");
-$query->execute([$theme_id]);
-$quizzes = $query->fetchAll(PDO::FETCH_ASSOC);
+// Récupérer les questions du quiz
+$query = $conn->prepare("SELECT * FROM questions WHERE quiz_id = ?");
+$query->execute([$quiz_id]);
+$questions = $query->fetchAll(PDO::FETCH_ASSOC);
 
-// Récupérer le nom du thème
-$query = $conn->prepare("SELECT nom FROM theme WHERE id = ?");
-$query->execute([$theme_id]);
-$theme_name = $query->fetchColumn();
+// Récupérer le titre du quiz
+$query = $conn->prepare("SELECT title FROM quizzes WHERE id = ?");
+$query->execute([$quiz_id]);
+$quiz_title = $query->fetchColumn();
 ?>
 
 <!DOCTYPE html>
@@ -26,25 +26,49 @@ $theme_name = $query->fetchColumn();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Night - <?php echo htmlspecialchars($theme_name); ?></title>
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <title>Quiz Night - <?php echo htmlspecialchars($quiz_title); ?></title>
+    <link rel="stylesheet" href="./assets/css/styles2.css">
 </head>
 <body>
     <div class="background"></div>
     
-    <h1>Quiz Night - <?php echo htmlspecialchars($theme_name); ?></h1>
+    <h1>Quiz Night - <?php echo htmlspecialchars($quiz_title); ?></h1>
 
-    <h2>Liste des Quiz</h2>
-    <div class="container">
-        <?php foreach ($quizzes as $quiz) : ?>
-            <div class="theme">
-                <a href="quiz.php?id=<?php echo htmlspecialchars($quiz['id']); ?>">
-                    <?php echo htmlspecialchars($quiz['title']); ?>
-                </a>
+    <div class="quiz-container">
+        <?php foreach ($questions as $question) : ?>
+            <div class="question-card">
+                <h3><?php echo htmlspecialchars($question['question_text']); ?></h3>
+                <?php
+                // Récupérer les réponses de la question
+                $query = $conn->prepare("SELECT * FROM reponse WHERE question_id = ?");
+                $query->execute([$question['id']]);
+                $reponses = $query->fetchAll(PDO::FETCH_ASSOC);
+                ?>
+                <ul class="reponses-list">
+                    <?php foreach ($reponses as $reponse) : ?>
+                        <li>
+                            <label>
+                                <input type="radio" name="question_<?php echo $question['id']; ?>" value="<?php echo $reponse['id']; ?>">
+                                <?php echo htmlspecialchars($reponse['texte_reponse']); ?>
+                            </label>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
         <?php endforeach; ?>
     </div>
 
-    <script src="./assets/js/script.js"></script>
+    <button onclick="ouvrirModal()">Voir les réponses</button>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fermerModal()">&times;</span>
+            <h2>Réponses sélectionnées</h2>
+            <div id="reponses-selectionnees"></div>
+            <button onclick="soumettreQuiz()">Soumettre</button>
+        </div>
+    </div>
+
+    <script src="./assets/js/script2.js"></script>
 </body>
 </html>
