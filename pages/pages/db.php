@@ -1,3 +1,4 @@
+-- Active: 1737899013229@@127.0.0.1@3306@quiz_night
 <?php
 $host = "localhost";
 $dbname = "quiz_night";
