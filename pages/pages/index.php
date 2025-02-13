@@ -30,7 +30,7 @@ $quizList = $query->fetchAll(PDO::FETCH_ASSOC);
         <div class="modal-content">
             <span class="close" onclick="fermerModal()">&times;</span>
             <h2>Connexion Administrateur</h2>
-            <form action="login.php" method="post">
+            <form action="./add_quiz.php" method="post">
                 <input type="text" name="username" placeholder="Nom d'utilisateur" required>
                 <input type="password" name="password" placeholder="Mot de passe" required>
                 <button type="submit">Se connecter</button>
