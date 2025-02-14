@@ -1,10 +1,11 @@
 <?php
 session_start();
 if (!isset($_SESSION["admin"])) {
-    header("Location: index.php");
+
+    header("Location: ../login.php");
     exit();
 }
-require_once "config.php";
+require_once "./config.php";
 
 $conn = Database::getConnection();
 ?>
@@ -15,7 +16,7 @@ $conn = Database::getConnection();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Quiz Night</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
 <body>
     <h1>Gestion des Quiz</h1>

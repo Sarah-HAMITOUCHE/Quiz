@@ -1,0 +1,96 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    color: white;
+    text-align: center;
+}
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url('https://example.com/starry-sky.jpg') repeat;
+    animation: cielAnime 50s linear infinite;
+    z-index: -1;
+}
+
+/* Conteneur du logo */
+.logo-container {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement si nécessaire */
+    position: absolute;
+    top: 10px; /* Distance depuis le haut */
+    left: 50%;
+    transform: translateX(-50%); /* Centre horizontalement */
+    width: 50px; /* Ajuste la largeur du logo */
+    height: 50px; /* Ajuste la hauteur du logo */
+    overflow: hidden; /* Cache les parties débordantes */
+    border-radius: 50%; /* Rend le conteneur rond */
+}
+
+/* Style du logo */
+.logo-container img {
+    width: 100%; /* S'adapte à la taille du conteneur */
+    height: 100%; /* S'adapte à la taille du conteneur */
+    object-fit: cover; /* Couvre le conteneur sans déformer l'image */
+}
+
+@keyframes cielAnime {
+    from { background-position: 0 0; }
+    to { background-position: 10000px 10000px; }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.theme {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.theme:hover {
+    transform: scale(1.1);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 15% auto;
+    width: 300px;
+    text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background: rgba(255, 255, 255, 0.3);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.5);
+}

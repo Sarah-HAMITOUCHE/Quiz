@@ -1,20 +1,23 @@
 <?php
 session_start();
-require_once "../includes/db.php";
-require_once "../classes/User.php";
+require_once 'config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $user = new User($pdo);
-    if ($user->login($_POST['username'], $_POST['password'])) {
-        header("Location: index.php");
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    // Récupérer l'utilisateur depuis la base de données
+    $conn = Database::getConnection();
+    $query = $conn->prepare("SELECT * FROM user WHERE username = ?");
+    $query->execute([$username]);
+    $user = $query->fetch(PDO::FETCH_ASSOC);
+
+    if ($user && password_verify($password, $user['password'])) {
+        $_SESSION["admin"] = $username;
+        header("Location: ../admin.php");
+        exit();
     } else {
         echo "Identifiants incorrects.";
     }
 }
 ?>
-
-<form method="post">
-    <input type="text" name="username" placeholder="Nom d'utilisateur">
-    <input type="password" name="password" placeholder="Mot de passe">
-    <button type="submit">Se connecter</button>
-</form>
