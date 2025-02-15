@@ -27,12 +27,23 @@ $quiz_title = $query->fetchColumn();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Night - <?php echo htmlspecialchars($quiz_title); ?></title>
-    <link rel="stylesheet" href="./assets/css/styles2.css">
+        <link rel="stylesheet" href="./assets/css/styles2.css">
+    <?php if ($quiz_id == 2): ?>
+        <link rel="stylesheet" href="./assets/css/histoire_styles.css">
+    <?php endif; ?>
+    <?php if ($quiz_id == 3): ?>
+        <link rel="stylesheet" href="./assets/css/geographie_styles.css">
+    <?php endif; ?>
+
 </head>
 <body>
+
+
     <div class="background"></div>
-    
+    <div class="title">
     <h1>Quiz Night - <?php echo htmlspecialchars($quiz_title); ?></h1>
+    </div>
+  
 
     <div class="quiz-container">
         <?php foreach ($questions as $question) : ?>
@@ -57,7 +68,6 @@ $quiz_title = $query->fetchColumn();
             </div>
         <?php endforeach; ?>
     </div>
-
     <button onclick="ouvrirModal()">Voir les réponses</button>
 
     <div id="modal" class="modal">

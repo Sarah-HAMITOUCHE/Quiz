@@ -23,7 +23,12 @@ $quizList = $query->fetchAll(PDO::FETCH_ASSOC);
     <div class="logo-container">
        <img src="./assets/images/reflexion.webp" alt="Logo Quiz_Night">
     </div>
-    <h1>Bienvenue sur Quiz Night</h1>
+    <div class="title"> 
+           <h1>Bienvenue sur Quiz Night</h1>
+    </div>
+      
+    
+   
     <button onclick="ouvrirModal()">Connexion Admin</button>
 
     <div id="modal" class="modal">
@@ -37,8 +42,6 @@ $quizList = $query->fetchAll(PDO::FETCH_ASSOC);
             </form>
         </div>
     </div>
-
-    <h2>Liste des Quiz</h2>
     <div class="container">
     <?php
     $sql = "SELECT * FROM theme";

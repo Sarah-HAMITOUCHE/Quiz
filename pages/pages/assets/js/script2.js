@@ -9,6 +9,7 @@ window.onclick = function(event) {
         fermerModal();
     }
 }
+
 function ouvrirModal() {
     const modal = document.getElementById('modal');
     modal.style.display = 'block';

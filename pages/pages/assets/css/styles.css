@@ -1,32 +1,57 @@
 body {
-    font-family: Arial, sans-serif;
+    background-image: url(../images/background.png);
+    background-size: cover; /* Ajuste l'image pour couvrir tout l'élément */
+    background-position: center; /* Centre l'image */
+    background-repeat: no-repeat; /* Évite la répétition */
+    font-family: Bookman, URW Bookman L, serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
-    color: white;
+    color:rgb(255, 255, 255); /*couleur de lecriture de la page*/
     text-align: center;
 }
 
+.title{
+    font-size: 15px;
+    display: flex;
+    align-items: center;  /* Aligne verticalement */
+    justify-content: center; /* Centre horizontalement */
+    position: absolute;
+    top: 20px; /* Ajuste la hauteur en haut de la page */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    border-radius: 90px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #282946cb;
+    width: 400px;  /* Augmenter la largeur */
+    height: 55px; /* Augmenter la hauteur */
+    padding: 20px; /* Augmenter l’espace intérieur */
+}
 .background {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: url('https://example.com/starry-sky.jpg') repeat;
     animation: cielAnime 50s linear infinite;
     z-index: -1;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Le met en arrière-plan */
 }
 
 /* Conteneur du logo */
 .logo-container {
     display: flex;
-    justify-content: center; /* Centre horizontalement */
-    align-items: center; /* Centre verticalement si nécessaire */
-    position: absolute;
+    justify-content: flex-start;
+    margin-left: 80px;
+    left: -40px;
     top: 10px; /* Distance depuis le haut */
     left: 50%;
     transform: translateX(-50%); /* Centre horizontalement */
-    width: 50px; /* Ajuste la largeur du logo */
-    height: 50px; /* Ajuste la hauteur du logo */
+    width: 120px; /* Ajuste la largeur du logo */
+    height: 120px ; /* Ajuste la hauteur du logo */
     overflow: hidden; /* Cache les parties débordantes */
     border-radius: 50%; /* Rend le conteneur rond */
 }
@@ -44,13 +69,38 @@ body {
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    border-radius: 90px;
     padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-between;
 }
 
+.container a {
+    display: block;
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px;
+    background: #37eeeeb2;
+    margin: 10px 0;
+    border-radius: 35px;
+    transition: 0.3s;
+    width: 300px;  /* Augmenter la largeur */
+    height: 75px; /* Augmenter la hauteur */
+    padding: 30px; /* Augmenter l’espace intérieur */
+    font-size: 50px; /* Augmente la taille de la police */
+    font-weight: bold; /* Met en gras pour plus de lisibilité */
+}
+
+.container a:hover {
+    border-radius: 35px;
+    background: #1f1a389d;
+    color: white;
+}
 .theme {
     padding: 15px;
     background: rgba(255, 255, 255, 0.2);
@@ -81,8 +131,10 @@ body {
     width: 300px;
     text-align: center;
 }
-
 button {
+    pointer-events: auto;
+    z-index: 10;
+    position: relative;
     padding: 10px 20px;
     border: none;
     background: rgba(255, 255, 255, 0.3);
@@ -93,4 +145,10 @@ button {
 
 button:hover {
     background: rgba(255, 255, 255, 0.5);
+}
+.reponses-list label {
+    position: absolute; /* Cela pourrait empêcher le clic */
+}
+input[type="radio"] {
+    pointer-events: auto;
 }
