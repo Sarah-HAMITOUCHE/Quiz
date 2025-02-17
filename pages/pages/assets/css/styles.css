@@ -63,10 +63,6 @@ body {
     object-fit: cover; /* Couvre le conteneur sans déformer l'image */
 }
 
-@keyframes cielAnime {
-    from { background-position: 0 0; }
-    to { background-position: 10000px 10000px; }
-}
 
 .container {
     border-radius: 90px;
@@ -124,7 +120,6 @@ body {
 
 .modal-content {
     background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
     padding: 20px;
     border-radius: 10px;
     margin: 15% auto;
@@ -147,8 +142,73 @@ button:hover {
     background: rgba(255, 255, 255, 0.5);
 }
 .reponses-list label {
+    display: block;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.2);
     position: absolute; /* Cela pourrait empêcher le clic */
 }
 input[type="radio"] {
     pointer-events: auto;
+}
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+.est.correct {
+    background-color: green;
+}
+.incorrect {
+    background-color: red;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 12px;
+        width: 300px;
+        height: 45px;
+        padding: 15px;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container a {
+        width: 250px;
+        height: 60px;
+        padding: 20px;
+        font-size: 30px;
+    }
+
+    .logo-container {
+        width: 80px;
+        height: 80px;
+    }
+
+    .modal-content {
+        width: 90%;
+        margin: 20% auto;
+    }
 }
