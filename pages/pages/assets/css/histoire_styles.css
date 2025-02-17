@@ -1,49 +1,51 @@
 body {
     background-image: url(../images/histoire.jpg);
-    background-repeat: repeat;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-color: #ae2f2f; /* Exemple de style spécifique */
     color: #333;
     padding-top: 100px;
 }
-.title{
+
+
+.title {
     color: aliceblue;
     font-size: 15px;
-        display: flex ;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        top: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 100%;
-        text-align: center;
-        border-radius: 90px;
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        background: #dcae53cb;
-        width: 400px;
-        height: 55px;
-        padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    text-align: center;
+    border-radius: 90px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background: #dcae53cb;
+    width: 400px;
+    height: 55px;
+    padding: 20px;
+}
 
-    }
-   
 .quiz-container {
     margin-top: 120px; /* Ajustement pour laisser de l’espace sous le titre */
-    padding: 20px;
     border-radius: 10px;
     display: grid;
     grid-template-columns: repeat(2, minmax(300px, 1fr)); /* Deux colonnes flexibles */
     gap: 30px; /* Plus d’espacement entre les questions */
     max-width: 1000px; /* Élargissement pour un meilleur agencement */
     margin: auto; /* Centrage */
+    
 }
 
 .question-card {
+    cursor: pointer;
     border: 1px solid #333;
     padding: 20px;
     background: rgba(255, 255, 255, 0.736);
     border-radius: 12px;
-  
     text-align: left;
 }
 
@@ -65,7 +67,7 @@ body {
     }
 
     .quiz-container {
-        grid-template-columns: 1fr; /* Une seule colonne */
+        grid-template-columns: 1fr; /* Une colonne pour les petits écrans */
         gap: 10px; /* Réduire l'espacement entre les cartes */
     }
 
