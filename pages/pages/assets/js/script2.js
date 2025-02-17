@@ -46,3 +46,24 @@ window.onclick = function(event) {
         fermerModal();
     }
 }
+document.addEventListener('DOMContentLoaded', function() {
+    const correctAnswers = document.querySelectorAll('.correct-answer');
+    correctAnswers.forEach(answer => {
+        answer.classList.add('correct');
+    });
+
+    // Ajouter l'animation de joie si le score est supérieur à 2
+    const resultElement = document.querySelector('.result');
+    if (resultElement && parseInt(resultElement.textContent.split(':')[1].trim()) > 2) {
+        resultElement.classList.add('joy-animation');
+        document.querySelector('.fireworks').style.display = 'block';
+    }
+});
+
+function soumettreQuiz() {
+    const modalContent = document.querySelector('.modal-content');
+    modalContent.classList.add('submit-animation');
+    setTimeout(() => {
+        modalContent.classList.remove('submit-animation');
+    }, 500);
+}

@@ -1,7 +1,6 @@
 <?php
 session_start();
 if (!isset($_SESSION["admin"])) {
-
     header("Location: ../login.php");
     exit();
 }
@@ -16,21 +15,25 @@ $conn = Database::getConnection();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Quiz Night</title>
-    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/admin.css">
 </head>
 <body>
-    <h1>Gestion des Quiz</h1>
+    <div class="admin-container">
+        <div class = titre>
+            <h2>Bienvenue a toi </h2>
+        </div>
+        <h1>Gestion des Quiz</h1>
 
-    <form action="add_quiz.php" method="post">
-        <label for="theme">Thème:</label>
-        <input type="text" id="theme" name="theme" required>
-        <label for="question">Question:</label>
-        <input type="text" id="question" name="question" required>
-        <label for="answers">Réponses (séparées par une virgule):</label>
-        <input type="text" id="answers" name="answers" required>
-        <label for="correct_answer">Réponse correcte:</label>
-        <input type="text" id="correct_answer" name="correct_answer" required>
-        <button type="submit">Ajouter Quiz</button>
+        <form action="add_quiz.php" method="post" class="admin-form">
+            <div class="form-group">
+                <label for="theme">Thème:</label>
+                <input type="text" id="theme" name="theme" required>
+            </div>
+            <div class="form-group">
+                <label for="question">Question:</label>
+                <input type="text" id="question" name="question" required>
+            </div>
+            <div class="form-group">
     </form>
 </body>
 </html>

@@ -57,3 +57,20 @@ body {
     margin: 0 auto; /* Centrage */
     margin-top: 60px;
 }
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+
+@media (max-width: 768px) {
+    .quiz-container {
+        grid-template-columns: 1fr; /* Une seule colonne sur les petits écrans */
+    }
+    .title {
+        width: 90%; /* Réduire la largeur de la barre de titre sur les petits écrans */
+    }
+}

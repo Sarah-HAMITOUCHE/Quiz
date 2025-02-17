@@ -21,3 +21,17 @@ window.addEventListener("resize", function () {
         logo.style.width = "100px"; // Taille normale sur grands écrans
     }
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const correctAnswers = document.querySelectorAll('.correct-answer');
+    correctAnswers.forEach(answer => {
+        answer.classList.add('correct');
+    });
+});
+
+function soumettreQuiz() {
+    const modalContent = document.querySelector('.modal-content');
+    modalContent.classList.add('submit-animation');
+    setTimeout(() => {
+        modalContent.classList.remove('submit-animation');
+    }, 500);
+}

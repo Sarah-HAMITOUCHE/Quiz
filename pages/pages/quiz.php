@@ -32,7 +32,9 @@ $quiz_title = $query->fetchColumn();
 <body>
     <div class="background"></div>
     
-    <h1>Quiz Night - <?php echo htmlspecialchars($quiz_title); ?></h1>
+    <button onclick="history.back()">Retour</button>
+    
+    <h1 class="title">Quiz Night - <?php echo htmlspecialchars($quiz_title); ?></h1>
 
     <h2>Questions</h2>
     <div class="container">

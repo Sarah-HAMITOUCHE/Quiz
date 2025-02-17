@@ -59,20 +59,14 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/styles2.css">
+    <link rel="stylesheet" href="./assets/css/admin.css">
     <script src="./assets/js/script2.js"></script>
 
-
     <title>Gestion des Quiz</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-        th { background-color: #f4f4f4; }
-        form { margin-top: 20px; }
-    </style>
 </head>
 <body>
+    <button onclick="history.back()">Retour</button>
+    
     <h2>Gestion des Quiz</h2>
     
     <form method="POST">

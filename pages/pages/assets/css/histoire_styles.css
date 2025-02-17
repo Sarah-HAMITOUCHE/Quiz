@@ -46,3 +46,30 @@ body {
   
     text-align: left;
 }
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .title {
+        font-size: 12px;
+        width: 300px;
+        height: 45px;
+        padding: 15px;
+    }
+
+    .quiz-container {
+        grid-template-columns: 1fr; /* Une seule colonne */
+        gap: 10px; /* Réduire l'espacement entre les cartes */
+    }
+
+    .question-card {
+        padding: 15px; /* Réduire le padding */
+    }
+}

@@ -14,11 +14,21 @@ $quizList = $query->fetchAll(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Night</title>
     <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles2.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const element = document.querySelector('.short-animation');
+            if (element) {
+                setTimeout(() => {
+                    window.location.href = '/index.php'; // Redirection vers la page index après 10 secondes
+                }, 10000); // 10 seconds
+            }
+        });
+    </script>
 </head>
 <body>
 
     <div class="background"></div>
-    
     
     <div class="logo-container">
        <img src="./assets/images/reflexion.webp" alt="Logo Quiz_Night">
@@ -26,9 +36,7 @@ $quizList = $query->fetchAll(PDO::FETCH_ASSOC);
     <div class="title"> 
            <h1>Bienvenue sur Quiz Night</h1>
     </div>
-      
     
-   
     <button onclick="ouvrirModal()">Connexion Admin</button>
 
     <div id="modal" class="modal">
@@ -42,6 +50,7 @@ $quizList = $query->fetchAll(PDO::FETCH_ASSOC);
             </form>
         </div>
     </div>
+    
     <div class="container">
     <?php
     $sql = "SELECT * FROM theme";
@@ -55,6 +64,8 @@ $quizList = $query->fetchAll(PDO::FETCH_ASSOC);
     ?>
     </div>
 
-    <script src="./assets/js/script.js"></script>
+    <div class="short-animation">Your content here</div>
+
+    <script src="./assets/js/script2.js"></script>
 </body>
 </html>
